@@ -14,13 +14,102 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      download_analytics: {
+        Row: {
+          created_at: string
+          download_type: string
+          id: string
+          success: boolean | null
+          url: string | null
+          user_ip: string | null
+          username: string | null
+        }
+        Insert: {
+          created_at?: string
+          download_type: string
+          id?: string
+          success?: boolean | null
+          url?: string | null
+          user_ip?: string | null
+          username?: string | null
+        }
+        Update: {
+          created_at?: string
+          download_type?: string
+          id?: string
+          success?: boolean | null
+          url?: string | null
+          user_ip?: string | null
+          username?: string | null
+        }
+        Relationships: []
+      }
+      generated_content: {
+        Row: {
+          created_at: string
+          generated_text: string
+          id: string
+          input_text: string
+          tool_type: string
+          user_ip: string | null
+        }
+        Insert: {
+          created_at?: string
+          generated_text: string
+          id?: string
+          input_text: string
+          tool_type: string
+          user_ip?: string | null
+        }
+        Update: {
+          created_at?: string
+          generated_text?: string
+          id?: string
+          input_text?: string
+          tool_type?: string
+          user_ip?: string | null
+        }
+        Relationships: []
+      }
+      trending_hashtags: {
+        Row: {
+          category: string
+          created_at: string
+          hashtag: string
+          id: string
+          last_updated: string
+          trending_score: number | null
+          usage_count: number | null
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          hashtag: string
+          id?: string
+          last_updated?: string
+          trending_score?: number | null
+          usage_count?: number | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          hashtag?: string
+          id?: string
+          last_updated?: string
+          trending_score?: number | null
+          usage_count?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      update_trending_scores: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
